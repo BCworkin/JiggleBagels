@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 
 <html>
@@ -8,12 +10,22 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <script src="http://cdn.tailwindcss.com"></script>
+
     </head>
 
     <body>
-        <nav class="py-6 px-6 flex justify-between items-center border-b border-peach-200">
-            {% load static %}
-            <img src="{% static 'static/images/logo.webp' %}" alt="Logo">
+        <nav class="py-6 px-6 flex justify-between items-center border-b bg-peach-500 border-gray-200">
+            <a href="/" class="text-xl font-semibold">JiggleBagels</a>
+
+            <img src="{% static 'logo.jpg' %}" alt="Logo">
+
+            <div class="space-x-6">
+                <a href="#" class="text-lg font-semibold hover:text-gray-500"> Bagels </a>
+                <a href="#" class="text-lg font-semibold hover:text-gray-500"> About us</a>
+                <a href="#" class="px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700">Login</a>
+                <a href="#" class="px-6 py-3 text-lg font-semibold bg-gray-500 text-white rounded-xl hover:bg-gray-700">Sign up</a>
+
         </nav>
         <div class="px-6 py-6">
 
@@ -21,8 +33,7 @@
             {% endblock %}
 
         </div>
-        {% comment %} <script src="https://code.jquery.com/jquery.js"></script>
-        <script src="js/bootstrap.min.js"></script> {% endcomment %}
+
     </body>
 
 </html>
