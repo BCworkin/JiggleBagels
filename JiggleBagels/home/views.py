@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from items.models import Item, Category
+from .forms import SignUpForm
 
 # Create your views here.
 def index(request):
@@ -11,6 +12,12 @@ def index(request):
         'items': items,
     })
 
-# not sure about this yet
 def contact(request):
     return render(request, 'home/contact.html')
+
+def signup(request):
+    form = SignUpForm()
+    
+    return render(request, 'home/signup.html', {
+        'form': form,
+    })
