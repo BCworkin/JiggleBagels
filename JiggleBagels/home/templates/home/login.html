@@ -1,10 +1,10 @@
 {% extends 'home/base.html' %}
 
-{% block title %}Sign up{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block content %}
 <div class="w-1/2 my-6 mx-auto p-6 bg-gray-100 rounded-xl">
-    <h1 class="mb-6 text-3xl"> Sign up </h1>
+    <h1 class="mb-6 text-3xl"> Login </h1>
 
     <form method="post" action=".">
         {% csrf_token %}
@@ -17,18 +17,13 @@
         </div>
 
         <div class="mb-3">
-            <label>Email</label><br>
-            {{form.email}}
-        </div>
-
-        <div class="mb-3">
             <label>Password</label><br>
-            {{form.password1}}
+            {{form.password}}
         </div>
 
         <div class="mb-3">
-            <label>Reenter password</label><br>
-            {{form.password2}}
+            <input type="checkbox" id="keep_logged_in" name="checkbox1">
+            <label for="checkbox1"> Keep me logged in</label><br>
         </div>
 
         {% if form.errors or form.non_field_errors %}
