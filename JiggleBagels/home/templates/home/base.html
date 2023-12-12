@@ -28,20 +28,28 @@
                 <a href="#" class="text-lg font-semibold hover:text-gray-500"> About us</a>
                 <a href="{% url 'home:contact' %}" class="text-lg font-semibold hover:text-gray-500"> Contact </a>
 
-                {% if request.user.is_authenticated%}              
+                {%if username is "None"%}            
                     <a href="{% url 'home:logout' %}" class="px-6 py-3 text-lg font-semibold bg-gray-500 text-white rounded-xl hover:bg-gray-700">Log Out</a> 
                 {% else %}
                     <a href="{% url 'home:login' %}" class="px-6 py-3 text-lg font-semibold bg-yellow-400 text-white rounded-xl hover:bg-yellow-500">Login</a>
                     <a href="{% url 'home:signup' %}" class="px-6 py-3 text-lg font-semibold bg-gray-500 text-white rounded-xl hover:bg-gray-700">Sign up</a>
                 {% endif %}
         </nav>
-        <div class="px-6 py-6">
 
-            {% block content %} 
-            {% endblock %}
-
-        </div>
+        {% block content %} 
+        {% endblock %}
 
     </body>
 
+    <div class="row footer bg-yellow-500" style="text-align: center;">
+        <ul class="col-md-6 p-5">
+
+            <li style="display: inline-block; margin-right: 20px;">
+                <a href="/home/terms/">Terms</a>
+            </li>
+            <li style="display: inline-block; margin-right: 20px;">
+                <a href="/admin/">Staff Login</a>
+            </li>
+        </ul>
+    </div>
 </html>

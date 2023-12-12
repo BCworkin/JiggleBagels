@@ -4,10 +4,18 @@ from .forms import SignUpForm
 
 # Create your views here.
 def index(request):
+    
+    username = None
     items = Item.objects.filter(is_sold=False)[0:6]
     categories = Category.objects.all()
     
+    # if the user is login, stored the user name
+    if request.user.is_authenticated:
+        # Access the username of the logged-in user
+        username = request.user.username
+    
     return render(request, 'home/index.html', {
+        "username": username, 
         'categories': categories, 
         'items': items,
     })

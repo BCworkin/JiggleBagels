@@ -22,9 +22,16 @@
         </div>
 
         <div class="mb-3">
-            <input type="checkbox" id="keep_logged_in" name="checkbox1">
-            <label for="checkbox1"> Keep me logged in</label><br>
+            <div class="flex items-start">
+                <div class="flex items-center h-5">
+                    <input id="remember" type="checkbox" name="remember_me" value="1" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300">
+                </div>
+                <label for="remember" class="ml-2 text-sm font-medium text-gray-900">Remember me</label>
+            </div>
+            <a href="#" class="ml-auto text-sm text-yellow-700 hover:underline">Forgot Password?</a>
         </div>
+        <button type="submit" class="py-4 px-8 text-lg bg-yellow-500 hover: bg-yellow-500 rounded-xl text-white">Login</button>
+        <div class="text-sm font-medium text-gray-500"> Not registered? <a href="{% url 'home:signup' %}" class="text-yellow-700 hover:underline">Create Account</a>
 
         {% if form.errors or form.non_field_errors %}
             <div class="mb-3 p-6 bg-red-100 rounded-xl">
@@ -35,7 +42,6 @@
             </div>
         {% endif %}
 
-        <button class="py-4 px-8 text-lg bg-yellow-500 hover: bg-yellow-500 rounded-xl text-white">Submit</button>
     </form>
 </div>    
 

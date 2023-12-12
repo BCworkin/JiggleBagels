@@ -8,7 +8,7 @@ app_name = 'home'
 
 urlpatterns = [
     # path('signout/', views.signout, name="signout"),
-    path('logout/', auth_views.LogoutView.as_view(next_page='home/index.html'), name='logout'),
+    path('logout/', views.index, name='logout'),
     path('', views.index, name='index'),
     path('contact/', views.contact, name='contact'),
     path('signup/', views.signup, name='signup'),
