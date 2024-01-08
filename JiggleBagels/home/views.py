@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.contrib.auth import logout
 from items.models import Item, Category
-from .forms import SignUpForm
+from .forms import SignUpForm, AuthenticationForm
 
 # Create your views here.
 def index(request):
@@ -20,6 +22,10 @@ def index(request):
         'items': items,
     })
 
+def logout_view(request):
+    logout(request)
+    return redirect(reverse('index'))  # Redirect to the home page after logout
+
 def contact(request):
     return render(request, 'home/contact.html')
 
@@ -29,8 +35,7 @@ def signup(request):
 
         if form.is_valid():
             form.save()
-
-            return redirect('/login')
+            return redirect(reverse('login'))
     
     else:
         form = SignUpForm()

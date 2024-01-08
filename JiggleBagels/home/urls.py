@@ -7,10 +7,9 @@ from .forms import LoginForm
 app_name = 'home'
 
 urlpatterns = [
-    # path('signout/', views.signout, name="signout"),
-    path('logout/', views.index, name='logout'),
+    path('logout/', views.logout_view, name='logout'),
     path('', views.index, name='index'),
     path('contact/', views.contact, name='contact'),
     path('signup/', views.signup, name='signup'),
-    path('login/', auth_views.LoginView.as_view(template_name='home/login.html', authentication_form=LoginForm), name='login'),
+    path('login/', auth_views.LoginView.as_view(template_name='home/login.html', authentication_form=LoginForm, success_url='/'), name='login'),
 ]
